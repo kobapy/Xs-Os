@@ -2,20 +2,21 @@ import random
 import sys
 import time
 
-# Gamefield
+# GameField
 # u1|u2|u3
 # m1|m2|m3
 # l1|l2|l3
-gamefield = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
-u1 = gamefield[0][0]
-u2 = gamefield[0][1]
-u3 = gamefield[0][2]
-m1 = gamefield[1][0]
-m2 = gamefield[1][1]
-m3 = gamefield[1][2]
-l1 = gamefield[2][0]
-l2 = gamefield[2][1]
-l3 = gamefield[2][2]
+
+gameField = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
+u1 = gameField[0][0]
+u2 = gameField[0][1]
+u3 = gameField[0][2]
+m1 = gameField[1][0]
+m2 = gameField[1][1]
+m3 = gameField[1][2]
+l1 = gameField[2][0]
+l2 = gameField[2][1]
+l3 = gameField[2][2]
 crosses = "×"
 noughts = "○"
 

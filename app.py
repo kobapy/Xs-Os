@@ -52,7 +52,6 @@ def my_turn(my_point: int, player_turn: int):
     time.sleep(0.5)
     print("Your turn.")
     time.sleep(0.2)
-    # TODO: At the beginning of the player's turn, the numbers available for input are displayed.
     print("Please enter the place to put it from 1-9.")
     while my_point in turn_action_record:
         if j == 1:
@@ -167,7 +166,7 @@ def win_judge(item: str):
 # Game Opening
 print("Welcome to Tic-tac-toe!")
 time.sleep(0.5)
-input_item = input("Enter 1 if you are the first player, 2 if you are the second player:")
+input_item = input("Enter 1 for the first move and 2 for the second move:")
 while input_item not in player_select_list:
     print("Please enter 1 or 2.")
     input_item = input("> ")

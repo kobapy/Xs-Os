@@ -17,7 +17,7 @@ m3 = gameField[1][2]
 l1 = gameField[2][0]
 l2 = gameField[2][1]
 l3 = gameField[2][2]
-crosses = "×"
+crosses = "x"
 noughts = "○"
 
 # For judging input values
@@ -39,13 +39,13 @@ def game_view():
     print(l1, l2, l3)
 
 
-def myTurn(point: int, player_turn: int):
+def my_turn(my_point: int, player_turn: int):
     """Player Turn Action
 
     A function of game progress on the player side.
 
     Args:
-        point: An integer where to mark on the game field.
+        my_point: An integer where to mark on the game field.
         player_turn: An integer indicating the first / second attack.
     """
     global j, input_item
@@ -54,43 +54,43 @@ def myTurn(point: int, player_turn: int):
     time.sleep(0.2)
     # TODO: At the beginning of the player's turn, the numbers available for input are displayed.
     print("Please enter the place to put it from 1-9.")
-    while point in turn_action_record:
+    while my_point in turn_action_record:
         if j == 1:
             print("Already entered place.")
         input_item = input("> ")
         while input_item not in input_number_list:
             print("Please enter only numbers from 1 to 9.")
             input_item = input("> ")
-        point = int(input_item)
+        my_point = int(input_item)
         j = 1
     j = 0
-    if point not in turn_action_record:
-        turn_action_record.append(point)
-        draw(point, player_turn)
+    if my_point not in turn_action_record:
+        turn_action_record.append(my_point)
+        draw(my_point, player_turn)
 
 
-def enemyTurn(point: int, player_turn: int):
+def enemy_turn(enemy_point: int, player_turn: int):
     """Enemy Turn Action
 
     A function of game progress on the computer side.
 
     Args:
-        point: An integer where to mark on the game field.
+        enemy_point: An integer where to mark on the game field.
         player_turn: An integer indicating the first / second attack.
     """
     time.sleep(0.5)
     print("AI turn.")
-    while point in turn_action_record:
-        point = random.randint(1, 9)
-    if point not in turn_action_record:
-        turn_action_record.append(point)
-        draw(point, player_turn)
+    while enemy_point in turn_action_record:
+        enemy_point = random.randint(1, 9)
+    if enemy_point not in turn_action_record:
+        turn_action_record.append(enemy_point)
+        draw(enemy_point, player_turn)
 
 
 def draw(point: int, player_turn: int):
     """Game Action
 
-    Substitute × or ○ in the game field list.
+    Substitute x or ○ in the game field list.
     In addition, a victory judgment is made.
 
     Args:
@@ -153,11 +153,11 @@ def win_judge(item: str):
     Display a victory message and end the game.
 
     Args:
-        item = A character string that stores × or ○.
+        item = A character string that stores x or ○.
     """
     time.sleep(0.5)
     if item == crosses:
-        print("× WIN")
+        print("x WIN")
         sys.exit()
     elif item == noughts:
         print("○ WIN")
@@ -191,16 +191,16 @@ game_view()
 for i in range(1, 6):
     player_turn = 0
     time.sleep(0.5)
-    print("TURN:"+ str(i))
+    print("TURN:" + str(i))
     if turn == 1:
-        myTurn(point, player_turn)
+        my_turn(point, player_turn)
     elif turn == 2:
-        enemyTurn(point, player_turn)
+        enemy_turn(point, player_turn)
     if i == 5:
         print("DRAW")
         sys.exit()
     player_turn = 1
     if turn == 1:
-        enemyTurn(point, player_turn)
+        enemy_turn(point, player_turn)
     elif turn == 2:
-        myTurn(point, player_turn)
+        my_turn(point, player_turn)

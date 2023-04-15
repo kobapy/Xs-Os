@@ -42,7 +42,8 @@ def game_view():
 def my_turn(my_point: int, player_turn: int):
     """Player Turn Action
 
-    A function of game progress on the player side.
+    A function where the player selects a number, checks if the number is valid, 
+    and then passes the value to the draw function.
 
     Args:
         my_point: An integer where to mark on the game field.
